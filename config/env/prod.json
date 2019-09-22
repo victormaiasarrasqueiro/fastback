@@ -1,0 +1,18 @@
+{
+    "app": {
+        "name": "backfast",
+        "baseRoute": "/api",
+        "port": 3000,
+        "secport": 3443,
+        "host": "localhost"
+    },
+
+    "db": {
+        "url": "mongodb+srv://desenv:desenv@cluster0-fhgh4.mongodb.net/test?retryWrites=true&w=majority",
+        "options": {
+            "poolSize": 10,
+            "keepAlive": 300000,
+            "connectTimeoutMS": 30000
+        }
+    }
+}
