@@ -1,4 +1,5 @@
 const UserRepository = require('../repository/UserRepository');
+const CryptoUtil = require('../util/CryptoUtil');
 
 class TokenService {
 
@@ -7,8 +8,10 @@ class TokenService {
     const userFound = await UserRepository.getByEmail(obj.email);
 
     if(userFound){
+
+      const userFoundPassword = CryptoUtil.decrypt(userFound.password);
       
-      if(userFound.password === obj.password){
+      if( userFoundPassword === obj.password){
         return { success: true , userFound: true, user:userFound, passwordValid: true, token: "KKoklleed8e0c89eue0c9euc09ec0ewuc" };
       }else{
         return { success: false , userFound: true, user:null, passwordValid: false, token: null };
